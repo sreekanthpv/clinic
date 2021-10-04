@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%extends 'clinicadmin/base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form action="" method="post" class="form-control">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <table class="table">
+                <tr>
+                    <td>NAME</td>
+                    <td>AGE</td>
+                    <td>ADDRESS</td>
+                    <td>SPECIALIZATION</td>
+
+                </tr>
+                {%for doctor in doctors%}
+                <tr>
+                    <td>{{doctor.name}}</td>
+                    <td>{{doctor.age}}</td>
+                    <td>{{doctor.address}}</td>
+                    <td>{{doctor.specialization}}</td>
+                    <td><a href="" class="btn btn-info">update</a></td>
+                    <td><a href="" class="btn btn-danger">delete</a></td>
+
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
